@@ -1,8 +1,11 @@
+import 'package:emed/core/base/base_view.dart';
 import 'package:emed/core/constants/color_const.dart';
 import 'package:emed/core/constants/size_const.dart';
 import 'package:emed/core/extensions/size_extension.dart';
 import 'package:emed/screens/patients/auth/signup/cubit/signup_patient_cubit.dart';
 import 'package:emed/screens/patients/auth/signup/state/signp_patients_state.dart';
+import 'package:emed/screens/patients/auth/signup/widgets/my_AppBar.dart';
+import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_click/on_click.dart';
@@ -12,52 +15,21 @@ class PatientsSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PatientsSignUpCubit, PatientsSignUpState>(
-      builder: (context, state) => Scaffold(
-        appBar: patientsignupAppBar(context),
-        body: patientsignupBody(context),
-      ),
-      listener: (context, state) {},
+    return BaseView(
+      viewModel: PatientsSignUp,
+      onPageBuilder: (context, widget) {
+        return BlocConsumer<PatientsSignUpCubit, PatientsSignUpState>(
+          builder: (context, state) => Scaffold(
+            appBar: PatientsAppBar(context, title: 'Sign Up'),
+            body: patientsignupBody(context),
+          ),
+          listener: (context, state) {},
+        );
+      },
     );
   }
 
-  AppBar patientsignupAppBar(BuildContext context) {
-    return AppBar(
-      centerTitle: true,
-      title: Text(
-        'Sign Up',
-        style: TextStyle(
-          color: ColorsConst.textColor,
-          fontSize: SizeConst.medium,
-        ),
-      ),
-      backgroundColor: Colors.transparent,
-      elevation: 0.0,
-      leadingWidth: 100.0,
-      leading: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Row(
-          children: [
-            const Icon(Icons.arrow_back_ios),
-            Text(
-              'Back',
-              style: TextStyle(
-                color: ColorsConst.kPrimaryColor,
-                fontSize: SizeConst.medium,
-              ),
-            )
-          ],
-        ).onClick(
-          () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      iconTheme: IconThemeData(
-        color: ColorsConst.kPrimaryColor,
-      ),
-    );
-  }
+  
 
   Container patientsignupBody(BuildContext context) => Container(
         height: context.h,
@@ -100,26 +72,8 @@ class PatientsSignUp extends StatelessWidget {
                     context.watch<PatientsSignUpCubit>().passwordcontroller,
               ),
               bigSpace(),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: ColorsConst.kPrimaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        RadiusConst.small,
-                      ),
-                    ),
-                    fixedSize: Size(context.h * 0.45, context.h * 0.07)),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/confirmpage');
-                },
-                child: Text(
-                  "Continue",
-                  style: TextStyle(
-                    color: ColorsConst.textWhiteColor,
-                    fontSize: SizeConst.medium,
-                  ),
-                ),
-              ),
+             MyElevatedBUtton(title: 'Continue', route: '/confirmpage', context: context)
+               
             ],
           ),
         ),
