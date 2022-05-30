@@ -36,7 +36,7 @@ class PatientGetStarted extends StatelessWidget {
             Positioned(
               left: context.h * 0.02,
               right: context.h * 0.02,
-              bottom: context.h*0.15,
+              bottom: context.h * 0.15,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -53,7 +53,9 @@ class PatientGetStarted extends StatelessWidget {
                     context.h * 0.054,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/patientsignup');
+                },
                 child: Text(
                   "Get Started",
                 ),
@@ -62,7 +64,7 @@ class PatientGetStarted extends StatelessWidget {
             Positioned(
               left: context.h * 0.02,
               right: context.h * 0.02,
-              bottom: context.h*0.05,
+              bottom: context.h * 0.05,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -77,7 +79,9 @@ class PatientGetStarted extends StatelessWidget {
                   ),
                   fixedSize: Size(context.h * 0.336, context.h * 0.054),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/patientlogin');
+                },
                 child: Text(
                   "Log in",
                   style: TextStyle(color: ColorsConst.kPrimaryColor),
