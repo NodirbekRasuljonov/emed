@@ -1,9 +1,6 @@
-import 'package:emed/core/constants/color_const.dart';
-import 'package:emed/core/constants/size_const.dart';
 import 'package:emed/core/extensions/size_extension.dart';
+import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PatientGetStarted extends StatelessWidget {
@@ -12,7 +9,7 @@ class PatientGetStarted extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: context.h,
         width: context.h,
         child: Stack(
@@ -37,55 +34,21 @@ class PatientGetStarted extends StatelessWidget {
               left: context.h * 0.02,
               right: context.h * 0.02,
               bottom: context.h * 0.15,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.extrasmall,
-                    ),
-                    side: BorderSide(
-                      color: ColorsConst.kPrimaryColor,
-                    ),
-                  ),
-                  primary: ColorsConst.kPrimaryColor,
-                  fixedSize: Size(
-                    context.h * 0.336,
-                    context.h * 0.054,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/patientsignup');
-                },
-                child: Text(
-                  "Get Started",
-                ),
+              child: MyElevatedBUtton(
+                title: 'Get Started',
+                route: '/patientsignup',
+                context: context,
               ),
             ),
             Positioned(
               left: context.h * 0.02,
               right: context.h * 0.02,
               bottom: context.h * 0.05,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  elevation: 0.0,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: ColorsConst.kPrimaryColor,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.extrasmall,
-                    ),
-                  ),
-                  fixedSize: Size(context.h * 0.336, context.h * 0.054),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/patientlogin');
-                },
-                child: Text(
-                  "Log in",
-                  style: TextStyle(color: ColorsConst.kPrimaryColor),
-                ),
+              child: MyElevatedBUtton(
+                title: 'Log in',
+                route: '/patientlogin',
+                context: context,
+                color: Colors.transparent,
               ),
             ),
           ],

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRoutes.onGenerateRoute,
-      initialRoute: '/patientgetstarted',
+      initialRoute: '/patientsplash',
     );
   }
 }
