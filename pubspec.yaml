@@ -41,6 +41,9 @@ dependencies:
   flutter_bloc: ^8.0.1
   connectivity_plus: ^2.3.0
   pin_code_fields: ^7.4.0
+  get_storage: ^2.0.3
+  flutter_screen_lock: ^5.0.12
+  syncfusion_flutter_calendar: ^20.1.58
 
 dev_dependencies:
   flutter_test:
