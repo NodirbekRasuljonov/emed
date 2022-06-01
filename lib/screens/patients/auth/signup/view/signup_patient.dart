@@ -6,6 +6,8 @@ import 'package:emed/screens/patients/auth/signup/cubit/signup_patient_cubit.dar
 import 'package:emed/screens/patients/auth/signup/state/signp_patients_state.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_AppBar.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
+import 'package:emed/screens/patients/auth/signup/widgets/textFormField.dart';
+import 'package:emed/screens/patients/auth/signup/widgets/titles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_click/on_click.dart';
@@ -15,21 +17,14 @@ class PatientsSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView(
-      viewModel: PatientsSignUp,
-      onPageBuilder: (context, widget) {
-        return BlocConsumer<PatientsSignUpCubit, PatientsSignUpState>(
-          builder: (context, state) => Scaffold(
-            appBar: PatientsAppBar(context, title: 'Sign Up'),
-            body: patientsignupBody(context),
-          ),
-          listener: (context, state) {},
-        );
-      },
+    return BlocConsumer<PatientsSignUpCubit, PatientsSignUpState>(
+      builder: (context, state) => Scaffold(
+        appBar: PatientsAppBar(context, title: 'Sign Up'),
+        body: patientsignupBody(context),
+      ),
+      listener: (context, state) {},
     );
   }
-
-  
 
   Container patientsignupBody(BuildContext context) => Container(
         height: context.h,
@@ -48,32 +43,32 @@ class PatientsSignUp extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               bigSpace(),
-              titles(title: 'Full name'),
+              MyTitles.titles(title: 'Full name'),
               littleSpace(),
-              inputFields(
+              MyTextFormField.inputFields(
                 hinttext: 'Enter Your full name ....',
                 controller:
                     context.watch<PatientsSignUpCubit>().fullnamecontroller,
               ),
               bigSpace(),
-              titles(title: 'Phone number'),
+              MyTitles.titles(title: 'Phone number'),
               littleSpace(),
-              inputFields(
+              MyTextFormField.inputFields(
                 hinttext: 'Enter your phone number....',
                 controller:
                     context.watch<PatientsSignUpCubit>().phonenumbercontroller,
               ),
               bigSpace(),
-              titles(title: 'Create password'),
+              MyTitles.titles(title: 'Create password'),
               littleSpace(),
-              inputFields(
+              MyTextFormField.inputFields(
                 hinttext: 'Create your password....',
                 controller:
                     context.watch<PatientsSignUpCubit>().passwordcontroller,
               ),
               bigSpace(),
-             MyElevatedBUtton(title: 'Continue', route: '/confirmpage', context: context)
-               
+              MyElevatedBUtton(
+                  title: 'Continue', route: '/confirmpage', context: context)
             ],
           ),
         ),
@@ -88,52 +83,4 @@ class PatientsSignUp extends StatelessWidget {
   SizedBox littleSpace() => const SizedBox(
         height: 10.0,
       );
-
-  TextFormField inputFields({
-    required String hinttext,
-    required TextEditingController controller,
-    isSecure,
-  }) =>
-      TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          hintText: hinttext,
-          hintStyle: TextStyle(color: ColorsConst.authtextcolor),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorsConst.kPrimaryColor,
-            ),
-            borderRadius: BorderRadius.circular(
-              RadiusConst.small,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorsConst.kPrimaryColor,
-            ),
-            borderRadius: BorderRadius.circular(
-              RadiusConst.small,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorsConst.kPrimaryColor,
-            ),
-            borderRadius: BorderRadius.circular(
-              RadiusConst.small,
-            ),
-          ),
-        ),
-      );
-
-  Text titles({required String title}) {
-    return Text(
-      title,
-      style: TextStyle(
-        color: ColorsConst.textColor,
-        fontSize: SizeConst.medium,
-        fontWeight: FontWeight.w500,
-      ),
-    );
-  }
 }

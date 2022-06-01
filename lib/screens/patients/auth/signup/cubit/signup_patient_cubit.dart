@@ -8,4 +8,11 @@ class PatientsSignUpCubit extends Cubit<PatientsSignUpState>{
   TextEditingController fullnamecontroller=TextEditingController();
   TextEditingController phonenumbercontroller=TextEditingController();
   TextEditingController passwordcontroller=TextEditingController();
+  
+  TextEditingController loginphonenumbercontroller=TextEditingController();
+  TextEditingController loginpasswordcontroller=TextEditingController();
+
+
+  bool isLoginSecure=false;
+  bool isSignUpSecure=false;
 }
