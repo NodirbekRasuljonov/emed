@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRoutes.onGenerateRoute,
-      initialRoute: '/main',
+      initialRoute: '/addappointment',
     );
   }
 }
