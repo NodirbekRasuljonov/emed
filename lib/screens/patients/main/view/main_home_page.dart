@@ -3,7 +3,6 @@ import 'package:emed/core/extensions/size_extension.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
 import 'package:emed/screens/patients/main/cubit/home_cubit.dart';
 import 'package:emed/screens/patients/main/state/home_State.dart';
-import 'package:emed/screens/patients/treatments/treatment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
@@ -152,7 +151,9 @@ class _PatientsHomePageState extends State<PatientsHomePage> {
           child: SvgPicture.asset('assets/svg/noti.svg'),
         ),
       ],
-      leading: Image.asset('assets/images/profile_icon.png'),
+      leading: Image.asset('assets/images/profile_icon.png').onClick(() {
+        Navigator.pushNamed(context, '/profile');
+       }),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       centerTitle: true,
