@@ -6,30 +6,34 @@ class HomePatientsCubit extends Cubit<HomePatientsState> {
   HomePatientsCubit() : super(HomePatientsInitialState());
 
   int currentindex = 0;
-  TextEditingController region=TextEditingController();
-  TextEditingController district=TextEditingController();
-  TextEditingController hospital=TextEditingController();
-  TextEditingController doctospostion=TextEditingController();
-  TextEditingController doctor=TextEditingController();
-  TextEditingController servicetype=TextEditingController();
+  TextEditingController region = TextEditingController();
+  TextEditingController district = TextEditingController();
+  TextEditingController hospital = TextEditingController();
+  TextEditingController doctospostion = TextEditingController();
+  TextEditingController doctor = TextEditingController();
+  TextEditingController servicetype = TextEditingController();
 
   void changetheIndex({required int index}) {
     if (index == 0) {
       currentindex = index;
-      emit(HomePatientsInitialState());
-      debugPrint("init");
+      emit(
+        HomePatientsInitialState(),
+      );
     } else if (index == 1) {
       currentindex = index;
-      emit(HomePatientsTreatmentState());
-      debugPrint("treatment");
+      emit(
+        HomePatientsTreatmentState(),
+      );
     } else if (index == 2) {
       currentindex = index;
-      emit(HomePatientsDoctorsState());
-      debugPrint("Doxtor");
+      emit(
+        HomePatientsDoctorsState(),
+      );
     } else if (index == 3) {
       currentindex = index;
-      emit(HomePatientsHospitalState());
-      debugPrint("hospitl");
+      emit(
+        HomePatientsHospitalState(),
+      );
     }
   }
 }

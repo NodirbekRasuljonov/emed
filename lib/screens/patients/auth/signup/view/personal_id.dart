@@ -4,7 +4,6 @@ import 'package:emed/core/extensions/size_extension.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_AppBar.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
 import 'package:flutter/material.dart';
-import 'package:on_click/extensions/click_extension.dart';
 
 class PersonalId extends StatelessWidget {
   const PersonalId({Key? key}) : super(key: key);
@@ -20,7 +19,7 @@ class PersonalId extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+           const SizedBox(
               height: 50.0,
             ),
             Container(
@@ -120,12 +119,12 @@ class PersonalId extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+           const SizedBox(
               height: 20.0,
             ),
             MyElevatedBUtton(
                 title: 'Go to your account',
-                route: '/patienthome',
+                route: '/main',
                 context: context),
           ],
         ),
