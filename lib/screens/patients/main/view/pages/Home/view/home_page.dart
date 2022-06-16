@@ -1,8 +1,6 @@
 import 'package:emed/core/extensions/size_extension.dart';
 import 'package:emed/screens/patients/auth/signup/widgets/my_elevatedButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MyHomoPage extends StatelessWidget {
@@ -19,7 +17,6 @@ class MyHomoPage extends StatelessWidget {
             Container(
               height: context.h * 0.5,
               width: context.h * 0.5,
-              color: Colors.red,
             ),
             SfCalendar(
               view: CalendarView.month,
@@ -27,7 +24,6 @@ class MyHomoPage extends StatelessWidget {
             Container(
               height: context.h * 0.5,
               width: context.h * 0.5,
-              color: Colors.amber,
             ),
             const SizedBox(
               height: 30.0,

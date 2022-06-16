@@ -44,6 +44,8 @@ dependencies:
   get_storage: ^2.0.3
   flutter_screen_lock: ^5.0.12
   syncfusion_flutter_calendar: ^20.1.58
+  flutter_rating_stars: ^1.0.3+4
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

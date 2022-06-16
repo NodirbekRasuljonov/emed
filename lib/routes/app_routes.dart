@@ -3,9 +3,12 @@ import 'package:emed/screens/patients/auth/signup/view/login_page.dart';
 import 'package:emed/screens/patients/auth/signup/view/personal_id.dart';
 import 'package:emed/screens/patients/auth/signup/view/signup_patient.dart';
 import 'package:emed/screens/patients/getstarted_page.dart';
+import 'package:emed/screens/patients/main/view/pages/Doctors/view/add_appoitnmentwith_doctor.dart';
+import 'package:emed/screens/patients/main/view/pages/Doctors/view/doctor_info.dart';
 import 'package:emed/screens/patients/main/view/pages/home/view/add_appointments.dart';
 import 'package:emed/screens/patients/main/view/main_home_page.dart';
 import 'package:emed/screens/patients/main/view/pages/profile/view/profile_page.dart';
+import 'package:emed/screens/patients/mock/doctors_data.dart';
 import 'package:emed/screens/patients/splashscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +52,15 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => const ProfilePage(),
         );
+        case '/doctorinfo':
+        return MaterialPageRoute(
+          builder: (context) => DoctorsInfoPage(info: (args as DoctorsModel)),
+        );
+        case '/doctorapp':
+        return MaterialPageRoute(
+          builder: (context) => AppointmentWithDoctor(),
+        );
+        
     }
   }
 }

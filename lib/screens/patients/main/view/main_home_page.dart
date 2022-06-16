@@ -2,6 +2,7 @@ import 'package:emed/core/constants/color_const.dart';
 import 'package:emed/core/extensions/size_extension.dart';
 import 'package:emed/screens/patients/main/cubit/home_cubit.dart';
 import 'package:emed/screens/patients/main/state/home_State.dart';
+import 'package:emed/screens/patients/main/view/pages/Doctors/view/doctors_page.dart';
 import 'package:emed/screens/patients/main/view/pages/Home/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +32,7 @@ class _PatientsHomePageState extends State<PatientsHomePage> {
           else if(state is HomePatientsTreatmentState){
             return Container(color: Colors.red,);
           }else if(state is HomePatientsDoctorsState){
-            return Container(color: Colors.amber,);
+            return DoctorsPage();
           }
           else{
             return Container(

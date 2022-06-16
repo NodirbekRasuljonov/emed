@@ -1,6 +1,8 @@
+
 import 'package:emed/routes/app_routes.dart';
 import 'package:emed/screens/patients/auth/signup/cubit/signup_patient_cubit.dart';
 import 'package:emed/screens/patients/main/cubit/home_cubit.dart';
+import 'package:emed/screens/patients/main/view/pages/Doctors/cubit/doctors_cubit.dart';
 import 'package:emed/screens/patients/main/view/pages/profile/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +23,9 @@ Future<void> main(List<String> args) async {
         BlocProvider(
           create: (context) => ProfileCubit(),
         ),
+        BlocProvider(
+          create: (context) => DoctorsCubit(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -38,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRoutes.onGenerateRoute,
-      initialRoute: '/patientsplash',
+      initialRoute: '/main',
     );
   }
 }
